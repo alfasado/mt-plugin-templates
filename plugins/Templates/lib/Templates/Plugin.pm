@@ -23,6 +23,8 @@ sub _hdlr_templates {
     my $build_type = $args->{ build_type };
     my $include_backup = $args->{ include_backup };
     my $not_template_id = $args->{ not_template_id };
+    my $sort_by = $args->{ sort_by };
+    my $sort_order = $args->{ sort_order };
     if ( $type ) {
         $terms{ type } = $type;
     } else {
@@ -36,8 +38,16 @@ sub _hdlr_templates {
     if ( $not_template_id ) {
         $terms{ id } = { 'not' => $not_template_id };
     }
-    $params{ 'sort' } = 'type';
-    $params{ direction } = 'ascend';
+    if ( $sort_by ) {
+        $params{ 'sort' } = $sort_by;
+    } else {
+        $params{ 'sort' } = 'type';
+    }
+    if ( $sort_order ) {
+        $params{ direction } = $sort_order;
+    } else {
+        $params{ direction } = 'ascend';
+    }
     if ( $type && $type eq 'index' ) {
         if ( $args->{ html } ) {
             $terms{ outfile } = { 'like' => '%html' };
