@@ -1,0 +1,14 @@
+name: Templates
+id:   Templates
+key:  templates
+version: 0.1
+author_link: http://alfasado.net/
+author_name: Alfasado Inc.
+l10n_class: Templates::L10N
+description: <__trans phrase="Output Template List.">
+tags:
+    block:
+        Templates: $templates::Templates::Plugin::_hdlr_templates
+        TemplatesHeader: $templates::Templates::Plugin::_hdlr_pass_tokens
+        TemplatesFooter: $templates::Templates::Plugin::_hdlr_pass_tokens
+
