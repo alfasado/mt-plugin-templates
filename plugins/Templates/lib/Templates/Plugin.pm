@@ -65,7 +65,7 @@ sub _hdlr_templates {
         for my $col ( @$column ) {
             $ctx->{ __stash }->{ vars }->{ 'template_' . $col } = $template->$col;
         }
-        local $ctx->{ __stash }->{ vars }->{ template_name } = $template->name;
+        local $ctx->{ __stash }{ blog } = $template->blog;
         local $ctx->{ __stash }->{ vars }->{ __first__ } = 1 if ( $i == 0 );
         local $ctx->{ __stash }->{ vars }->{ __counter__ } = $i + 1;
         local $ctx->{ __stash }->{ vars }->{ __odd__ } = $odd;
